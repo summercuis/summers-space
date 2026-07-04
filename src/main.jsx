@@ -52,7 +52,7 @@ const navCards = [
   },
   {
     title: "Publications",
-    subtitle: "APA7 research archive",
+    subtitle: "My interests",
     href: sectionLink("#publications"),
     image: asset("media/portrait-03.png"),
     tone: "aqua",

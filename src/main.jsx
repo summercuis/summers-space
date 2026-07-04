@@ -18,6 +18,10 @@ const currentPath = window.location.pathname.replace(basePath.replace(/\/$/, "")
 
 const publications = [
   {
+    text: "Cui, S. (2026). The predicament of saying: Writing the unsayable in interpretivist qualitative educational research. International Journal of Qualitative Studies in Education.",
+    doi: "https://doi.org/10.1080/09518398.2026.2698452",
+  },
+  {
     text: "Cui, S. (2026). Language and time in education: Thinking in the age of generative artificial intelligence. AI & Society.",
     doi: "https://doi.org/10.1007/s00146-026-03148-w",
   },
@@ -135,7 +139,7 @@ function Hero() {
       <div className="hero-tint" />
       <Nav />
       <div className="hero-inner">
-        <p className="eyebrow">Education philosophy x educational technology</p>
+        <p className="eyebrow">Philosophy of education x digital life</p>
         <TextType
           tag="h1"
           text={["Summer's Space"]}
@@ -188,7 +192,7 @@ function WhatIDo() {
       <div className="intro-grid">
         <div>
           <h2>
-            <ShinyText text="Researching the philosophical conditions of education in technological life." />
+            <ShinyText text="Researching the being of education in technological life." />
           </h2>
         </div>
         <div className="intro-copy">
@@ -298,7 +302,7 @@ function Contact() {
     <section className="section contact" id="contact">
       <div>
         <p className="eyebrow">Contact</p>
-        <h2>For research conversations, collaborations, and speaking invitations.</h2>
+        <h2>Always glad to talk research, collaborations, or possible talks.</h2>
       </div>
       <div className="contact-card glass">
         <a href="mailto:summer.cui@unimelb.edu.au">
@@ -348,10 +352,9 @@ function BlogPage() {
         </div>
         <section className="blog-hero">
           <p className="eyebrow">Summer's Blog</p>
-          <h1>Notes toward a more answerable education.</h1>
+          <h1>A place to write things that aren't papers.</h1>
           <p>
-            A separate writing room for essays on GenAI, philosophy of education, language,
-            environmental dwelling, and the lived textures of teaching.
+            A writing room for essays, notes, and daydreaming on the page.
           </p>
         </section>
         <section className="blog-grid">

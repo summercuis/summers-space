@@ -26,7 +26,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 1180px;
   overflow-x: hidden;
 }
 
@@ -968,10 +967,6 @@ p {
 }
 
 @media (max-width: 1250px) {
-  body {
-    min-width: 0;
-  }
-
   :root {
     --max: min(100vw - 34px, 1700px);
   }
@@ -1020,5 +1015,235 @@ p {
 
   .publication-list {
     padding: 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --max: min(100vw - 28px, 1700px);
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .site-nav {
+    top: 12px;
+    width: calc(100vw - 24px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 10px;
+    font-size: 16px;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 30px;
+    flex: 0 0 auto;
+    font-size: 12px;
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .site-nav nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+  }
+
+  .site-nav nav a {
+    min-width: 0;
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding: 156px 0 56px;
+  }
+
+  .hero-inner {
+    align-self: start;
+    padding-top: 0;
+  }
+
+  .hero h1,
+  .blog-hero h1 {
+    max-width: 100%;
+    font-size: 54px;
+    line-height: 0.98;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    margin-top: 18px;
+    font-size: 18px;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .glass-button,
+  .text-button {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 76px 0;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 1.08;
+  }
+
+  .intro-grid,
+  .contact {
+    gap: 34px;
+  }
+
+  .intro-copy p {
+    font-size: 15px;
+    line-height: 1.68;
+  }
+
+  .direction-card {
+    padding: 18px;
+  }
+
+  .direction-card strong {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .figure-ribbon {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 620px;
+    margin-top: 46px;
+  }
+
+  .figure-panel {
+    min-height: 310px;
+    clip-path: none;
+  }
+
+  .figure-panel:not(:first-child) {
+    margin-left: 0;
+  }
+
+  .figure-panel img {
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    transform: none;
+    object-position: center top;
+  }
+
+  .publications {
+    padding: 78px 14px;
+  }
+
+  .publications-bg {
+    background:
+      linear-gradient(180deg, rgba(255, 247, 232, 0.42), rgba(255, 248, 235, 0.72)),
+      var(--publications-image) center top / cover no-repeat;
+  }
+
+  .publications .eyebrow {
+    font-size: 40px;
+  }
+
+  .publication-list {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .publication p {
+    font-size: 14px;
+  }
+
+  .blog-preview {
+    min-height: 100svh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 28px;
+    padding: 120px 14px 64px;
+  }
+
+  .blog-preview h2 {
+    font-size: 40px;
+  }
+
+  .contact-card {
+    padding: 18px;
+  }
+
+  .contact-card a {
+    min-height: 54px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .blog-page {
+    padding-top: 118px;
+  }
+
+  .blog-hero {
+    padding: 56px 0 42px;
+  }
+
+  .blog-hero p {
+    font-size: 17px;
+  }
+
+  .blog-grid {
+    gap: 14px;
+    padding-bottom: 76px;
+  }
+
+  .blog-card {
+    min-height: 240px;
+    padding: 24px;
+  }
+
+  .blog-card h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-nav nav a {
+    font-size: 10px;
+  }
+
+  .hero h1,
+  .blog-hero h1 {
+    font-size: 46px;
+  }
+
+  .blog-preview h2,
+  .publications .eyebrow {
+    font-size: 34px;
   }
 }

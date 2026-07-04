@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.pnpm-store/
+.DS_Store
+*.log
+/ChatGPT Image*.png
+/*.pdf
+/完整流畅动画_4秒.mp4

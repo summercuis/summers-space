@@ -972,7 +972,7 @@ p {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: minmax(0, 680px);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
   padding-bottom: 120px;
 }
@@ -1126,6 +1126,90 @@ a.blog-card:focus-visible {
   color: #c45b13;
   font-size: 70px;
   line-height: 0.78;
+}
+
+.truth-article {
+  width: min(980px, calc(100vw - 56px));
+  padding: clamp(42px, 6vw, 82px);
+}
+
+.truth-article p {
+  margin-bottom: 17px;
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.truth-article em {
+  font-style: italic;
+}
+
+.article-section-heading {
+  margin: 34px 0 16px;
+  color: #6f4a8e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 1.55vw, 23px);
+  line-height: 1.24;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.truth-article .article-section-heading:first-child {
+  margin-top: 0;
+}
+
+.truth-article-list {
+  margin: 8px 0 22px 28px;
+  padding-left: 18px;
+  color: rgba(36, 21, 13, 0.84);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.truth-article-list li {
+  padding-left: 10px;
+  margin: 7px 0;
+}
+
+.truth-article-list strong {
+  color: #a94d12;
+  font-weight: 800;
+}
+
+.truth-article-list--ordered {
+  margin-left: 30px;
+}
+
+.truth-equation-list {
+  list-style: disc;
+}
+
+.truth-note-aside {
+  margin: 26px 0 28px !important;
+  padding: 20px 22px;
+  border-left: 4px solid rgba(196, 91, 19, 0.62);
+  background: rgba(255, 244, 221, 0.64);
+  color: rgba(74, 42, 22, 0.78) !important;
+  font-size: 14.3px !important;
+  line-height: 1.68 !important;
+}
+
+.apa-references {
+  margin-top: 48px;
+  padding-top: 8px;
+}
+
+.references-heading {
+  margin-bottom: 22px;
+}
+
+.blog-article-body .apa-reference {
+  margin: 0 0 14px;
+  padding-left: 2.15em;
+  text-indent: -2.15em;
+  color: rgba(36, 21, 13, 0.86);
+  font-size: 14.7px;
+  line-height: 1.55;
 }
 
 .article-figure {
@@ -1588,9 +1672,17 @@ a.blog-card:focus-visible {
   padding-top: 80px;
 }
 
+.project-feature-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.58fr);
+  align-items: center;
+  max-width: 1260px;
+  margin: 0 auto;
+  gap: clamp(20px, 2.6vw, 34px);
+}
+
 .project-feature {
-  max-width: 1060px;
-  padding: 52px;
+  padding: clamp(34px, 4vw, 44px);
   color: #25150d;
 }
 
@@ -1606,12 +1698,78 @@ a.blog-card:focus-visible {
 
 .project-feature h2 {
   max-width: 980px;
+  font-size: clamp(34px, 3.6vw, 58px);
+  line-height: 0.96;
 }
 
 .project-feature p {
   max-width: 860px;
   color: var(--muted);
-  font-size: 20px;
+  font-size: clamp(17px, 1.45vw, 19px);
+  line-height: 1.6;
+}
+
+.project-supervisors {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(180, 105, 25, 0.18);
+  color: rgba(73, 42, 22, 0.72) !important;
+  font-size: 15px !important;
+  font-weight: 720;
+}
+
+.project-supervisor-portrait {
+  position: relative;
+  margin: 0;
+  overflow: visible;
+  padding: clamp(12px, 1.6vw, 18px);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  background:
+    linear-gradient(135deg, rgba(255, 246, 223, 0.42), rgba(255, 179, 77, 0.18)),
+    rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 34px 90px rgba(151, 91, 17, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.66);
+  isolation: isolate;
+}
+
+.project-supervisor-portrait::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 247, 230, 0.12), transparent 42%),
+    radial-gradient(circle at 22% 16%, rgba(255, 218, 116, 0.42), transparent 28%),
+    radial-gradient(circle at 78% 8%, rgba(174, 111, 255, 0.16), transparent 24%);
+  mix-blend-mode: screen;
+}
+
+.project-supervisor-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  object-position: center;
+  filter: saturate(1.03) contrast(0.98);
+}
+
+.project-supervisor-portrait figcaption {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  max-width: calc(100% - 36px);
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: rgba(45, 23, 12, 0.36);
+  backdrop-filter: blur(18px);
+  color: rgba(255, 246, 232, 0.92);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
 }
 
 .magic-card {
@@ -2313,12 +2471,22 @@ a.blog-card:focus-visible {
     gap: 26px;
   }
 
+  .project-feature-layout {
+    grid-template-columns: 1fr;
+  }
+
   .teaching-hero figure {
     min-height: 300px;
   }
 
   .project-feature {
     padding: 28px;
+  }
+
+  .project-supervisor-portrait img {
+    aspect-ratio: 1672 / 1211;
+    max-height: none;
+    object-fit: contain;
   }
 
   .project-feature p,

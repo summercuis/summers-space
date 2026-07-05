@@ -2,9 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUpRight,
-  BookOpenText,
   Mail,
-  Orbit,
   Sparkles,
 } from "lucide-react";
 import TextType from "./TextType";
@@ -964,18 +962,6 @@ function Contact() {
         <a href="mailto:summer.cui@unimelb.edu.au">
           <Mail size={19} />
           summer.cui@unimelb.edu.au
-        </a>
-        <a href="https://orcid.org/0009-0009-2463-1708" target="_blank" rel="noreferrer">
-          <Orbit size={19} />
-          ORCID 0009-0009-2463-1708
-        </a>
-        <a href="https://findanexpert.unimelb.edu.au/profile/1096383-summer-cui" target="_blank" rel="noreferrer">
-          <BookOpenText size={19} />
-          University of Melbourne profile
-        </a>
-        <a href="https://scholar.google.com.au/citations?user=VMSnLZMAAAAJ&hl=en" target="_blank" rel="noreferrer">
-          <ArrowUpRight size={19} />
-          Google Scholar
         </a>
       </div>
     </section>

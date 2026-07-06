@@ -279,7 +279,49 @@ const truthReferenceEntries = [
   ],
 ];
 
+const effortText = `
+When I was still a first-year master’s student, I was very curious about, and dissatisfied with, the topic of meritocracy. I still keep my notebook from that time, filled with some of my thoughts. Interestingly, this dissatisfaction later evolved into an extreme suspicion of “meritocracy.”
+
+Interestingly, in my mother’s words, I seem to be “very hardworking.” She thinks I “do not know how to live.” When we talk on the phone, she urges me to go out and have fun soon. This is just like when I was in secondary school. Once, I was extremely irritated because she disturbed me while I was reading, and I asked her, “Can you go out by yourself? Can you stop bothering me?” My mother’s friends did not understand her worries. I attribute this to my mother’s air-sign traits.
+
+Yet in the words of my classmates, I seem to be a person with talent. In Chinese, they say I am a xueba. What is even more interesting is that, from secondary school to every later stage, classmates have told me that the first time they saw me, they felt I was not someone who studied properly. I would ask why. They all said that I simply did not look like someone who would be serious, including but not limited to the fact that I seemed rarely to wear the school uniform.
+
+However, I myself do not understand either of these two.
+
+What is effort? Is it the state that appears when, even while something does not come smoothly, when one is not immersed in it, or even dislikes it somewhat, one still persuades oneself to do the “right” thing?
+
+What is talent? Is it some trait granted by God, cherished in the present age, and accidentally discovered by oneself and others?
+
+I cannot truly accept or understand this. Therefore, when I was a master’s student, many of the assignments I wrote were about these things—about the legitimacy of luck, about debates over justice, about fairness. But sociology, or certain traditions of endless deconstruction, could not help me grasp what I had really experienced in life.
+
+When I was attending the PESA conference, I suddenly had an idea on the plane and began doodling and sketching by myself (Figure 1). My husband exclaimed, “You’re so serious!” I thought he was truly inexplicable. I did not feel that this was seriousness at all.
+
+Returning to the question of diligence and talent, one issue lies in what this means to “me” in the meaning of the sustained present. I was once fortunate enough to be invited to share some “successful” experiences, although I do not think they were “success.” If I could summarise some of my experiences for myself, I think the best word would be “game.”
+
+The unfolding of every game requires participants, a process of interaction, and props. Of course, rules are also a very important part. I have found that some people like to understand the rules first before deciding whether to participate in a game and whom to play with. But I seem always to have been: just do it first; while doing it, look at the rules and observe the scene. I do not think “talent” and “effort” exist in this kind of scene. What I mean is that “I” simply would not be aware of, or understand, the existence of these two things. Of course, the world is very complex. We can say that a person plays because of external stimuli, such as rankings and trophies, or we can say that a person has found some kind of meaning, such as being immersed in their own artistic world. But at the moment when the game truly unfolds, these explanations seem to retreat into the background. A person does not play a game while constantly asking themselves, “Am I very hardworking?” “Do I have talent?” If these questions keep appearing, then the game has instead already been interrupted. Someone who has truly entered the game is more concerned with how to take the next step, where things have not yet opened up, and whether the rules can be re-understood.
+
+So, I am not saying that effort has no meaning. Effort certainly has meaning, but it is not a quality that can be worshipped in isolation. Effort only appears after a person has already entered a certain game. It is not the starting point, but the action that appears after resistance emerges. Talent is the same. Talent is often an explanation others give after the fact: why this person entered more quickly, why this person seems to find the door so easily, why they can play more smoothly than others in certain scenes. But this explanation cannot truly account for the relationship between a person and a certain world. It ignores how a person is drawn in, how they return again and again, and how they continue to test things out without fully knowing the rules. So-called talent may simply be that a certain game and a certain person came into alignment relatively early.
+
+I am still writing about the topic of meritocracy. If such a concept truly exists, I think perhaps it does not have to be tied to distribution and justice, at least in the Chinese context. But that is another topic. For now, let me stop here.
+`;
+
 const blogPosts = [
+  {
+    slug: "on-the-meaning-of-effort",
+    date: "03 Jul 2026",
+    title: "On the Meaning of ‘Effort’",
+    excerpt: "The debate between effort and talent does not exist in the world of those who are seriously playing a game",
+    image: asset("media/blog-effort.png"),
+    figures: [
+      {
+        src: asset("media/blog-effort-figure-01.png"),
+        label: "Figure 1",
+        caption: "Notes and sketches on the flight to PESA.",
+      },
+    ],
+    figureAfter: 7,
+    paragraphs: makeParagraphs(effortText),
+  },
   {
     slug: "zoo-as-screen",
     date: "01 May 2026",
@@ -1170,26 +1212,40 @@ function BlogArticlePage({ post }) {
         </SparkleImageHeader>
         <article className={`blog-article-body ${post.variant === "truth-note" ? "truth-article" : ""}`}>
           {post.figures?.length ? (
-            <>
-              <p className="dropcap">{post.paragraphs[0]}</p>
-              {renderFigure(post.figures[0], "article-figure--float")}
-              <p>{post.paragraphs[1]}</p>
-              <p>{post.paragraphs[2]}</p>
-              <div className="article-clear" aria-hidden="true" />
-              <p>{post.paragraphs[3]}</p>
-              <div className="article-figure-grid article-figure-grid--two">
-                {renderFigure(post.figures[1])}
-                {renderFigure(post.figures[2])}
-              </div>
-              <p>{post.paragraphs[4]}</p>
-              <div className="article-figure-grid article-figure-grid--two">
-                {renderFigure(post.figures[3])}
-                {renderFigure(post.figures[4])}
-              </div>
-              {post.paragraphs.slice(5).map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </>
+            post.figures.length === 1 ? (
+              <>
+                {post.paragraphs.map((paragraph, index) => (
+                  <React.Fragment key={`${post.slug}-${index}`}>
+                    <p className={index === 0 ? "dropcap" : ""}>{paragraph}</p>
+                    {index === (post.figureAfter ?? 0)
+                      ? renderFigure(post.figures[0], "article-figure--float article-figure--essay")
+                      : null}
+                  </React.Fragment>
+                ))}
+                <div className="article-clear" aria-hidden="true" />
+              </>
+            ) : (
+              <>
+                <p className="dropcap">{post.paragraphs[0]}</p>
+                {renderFigure(post.figures[0], "article-figure--float")}
+                <p>{post.paragraphs[1]}</p>
+                <p>{post.paragraphs[2]}</p>
+                <div className="article-clear" aria-hidden="true" />
+                <p>{post.paragraphs[3]}</p>
+                <div className="article-figure-grid article-figure-grid--two">
+                  {renderFigure(post.figures[1])}
+                  {renderFigure(post.figures[2])}
+                </div>
+                <p>{post.paragraphs[4]}</p>
+                <div className="article-figure-grid article-figure-grid--two">
+                  {renderFigure(post.figures[3])}
+                  {renderFigure(post.figures[4])}
+                </div>
+                {post.paragraphs.slice(5).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </>
+            )
           ) : post.variant === "truth-note" ? (
             renderTruthArticle(post)
           ) : (
